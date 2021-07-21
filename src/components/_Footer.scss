@@ -1,0 +1,12 @@
+// Dynamic variables
+
+
+// Layout
+.footer {
+  grid-area: footer;
+  
+  &__container {
+    padding: var(--sm);
+    background-color: var(--grey);
+  }
+}

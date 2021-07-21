@@ -1,0 +1,12 @@
+// Dynamic variables
+
+
+// Layout
+.header {
+  grid-area: header;
+  
+  &__container {
+    padding: var(--md);
+    background-color: var(--grey-dark);
+  }
+}
