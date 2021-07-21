@@ -1,0 +1,35 @@
+// Dynamic variables
+:root {
+  --base: 10px;
+}
+
+@media only screen and (min-width: 860px) {
+  :root {
+    --base: 20px;
+  }
+}
+
+// Layout
+:root {
+  // Paddings
+  --sm: var(--base);
+  --md: calc(var(--sm)*1.618);
+  --xmd: calc(var(--md)*1.618);
+  --lg: calc(var(--xmd)*1.618);
+  --xlg: calc(var(--lg)*1.618);
+
+  // Colors
+  --black: #2c2627;
+  --grey-dark: #524f4f;
+  --grey: #dddbcb;
+  --white: #fff;
+  --accent: #fc7c4e;
+
+  // Others
+  --br-1: 5px;
+  --br-2: 10px;
+  --border-1: 3px solid var(--grey-dark);
+  --border-2: 3px solid var(--grey);
+  --border-3: 3px solid var(--accent);
+  --text-shadow: 3px 2px 3px var(--grey);
+}
