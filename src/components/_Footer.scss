@@ -5,8 +5,22 @@
 .footer {
   grid-area: footer;
   
+  display: grid;
+  grid-template-columns: auto minmax(auto, 1000px) auto;
+  background-color: var(--grey);
+
   &__container {
+    grid-column: 2;
+    
     padding: var(--sm);
-    background-color: var(--grey);
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__icon {
+    p {
+      font-size: 30px;
+    }
   }
 }

@@ -1,9 +1,75 @@
 .main {
   grid-area: main;
-  align-self: center;
+  align-self: start;
   justify-self: center;
+  width: 100%;
 
   &__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--md);
+    padding: var(--lg) 0;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
+.searcher {
+  .form {
+    &__box {
+      display: flex;
+      justify-content: space-between;
+      border: var(--border-2);
+      border-top-left-radius: 1px;
+      border-bottom-left-radius: 1px;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+    &__input {
+      width: 95%;
+      padding: var(--sm);
+      text-align: left;
+
+      &::placeholder {
+        font-family: inherit;
+        color: var(--accent);
+        opacity: 1;
+        text-align: left;
+      }
+    }
+    &__submit {
+      width: 39px;
+      height: 39px;
+      background-color: var(--white);
+      border: var(--border-3);
+      border-radius: 50%;
+      transition: all 200ms ease;
+
+      &:hover {
+        background-color: var(--accent);
+        opacity: 0.9;
+      }
+    }
+    &__helptext {
+      padding-top: var(--sm);
+      color: var(--grey-dark);
+      font-size: 14px;
+    }
+  }
+}
+.empty {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  &__text {
+    width: 80%;
+    text-align: right;
+  }
+  &__arrow {
+    font-size: 35px;
+    color: var(--accent);
   }
 }

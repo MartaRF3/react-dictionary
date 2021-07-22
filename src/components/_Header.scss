@@ -1,12 +1,48 @@
 // Dynamic variables
+.header {
+  h1 {
+    --font-size: 30px;
+  }
+  &__logo {
+    --width: 50px;
+  }
+}
 
+@media only screen and (min-width: 860px) {
+  .header {
+    h1 {
+      --font-size: 50px;
+    }
+    &__logo {
+      --width: 150px;
+    }
+  }
+}
 
 // Layout
 .header {
   grid-area: header;
   
+  display: grid;
+  grid-template-columns: auto minmax(auto, 1000px) auto;
+  align-items: center;
+  background-color: var(--grey-dark);
+  color: var(--white);
+  
   &__container {
+    grid-column: 2;
     padding: var(--md);
-    background-color: var(--grey-dark);
+  }
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    h1 {
+      font-size: var(--font-size);
+    }
+  }
+  &__logo {
+    width: var(--width);
   }
 }

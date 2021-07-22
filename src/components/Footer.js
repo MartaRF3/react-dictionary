@@ -4,7 +4,23 @@ let Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <h1>Hi! I'm a footer</h1>
+        <ul>
+          <li className="footer__icon">
+            <a href="0#">
+              <p>🎃</p>
+            </a>
+          </li>
+          <li className="footer__icon">
+            <a href="0#">
+              <p>🪁</p>
+            </a>
+          </li>
+          <li className="footer__icon">
+            <a href="0#">
+              <p>🍭</p>
+            </a>
+          </li>
+        </ul>
       </div>
     </footer>
   )
