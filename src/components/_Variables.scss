@@ -1,6 +1,6 @@
 // Dynamic variables
 :root {
-  --base: 10px;
+  --base: 8px;
 }
 
 @media only screen and (min-width: 860px) {
@@ -19,11 +19,13 @@
   --xlg: calc(var(--lg)*1.618);
 
   // Colors
-  --black: #2c2627;
+  --black: #110B11;
+  --blackish: #2c2627;
   --grey-dark: #524f4f;
   --grey: #dddbcb;
+  --whitish: #fffdf8;
   --white: #fff;
-  --accent: #fc7c4e;
+  --accent: #EC0B43; // #C589E8 #22AED1 #D00000 #FAA916
 
   // Others
   --br-1: 5px;
