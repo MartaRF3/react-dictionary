@@ -1,7 +1,7 @@
 import React from 'react';
 
 // For some reason this doesn't work...
-import logo from '../assets/images/rosa.png';
+// import logo from '../assets/images/rosa.png';
 
 let Header = () => {
   return (
