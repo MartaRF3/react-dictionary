@@ -12,6 +12,7 @@
 // Layout
 :root {
   // Paddings
+  --xsm: calc(var(--sm)/1.618);
   --sm: var(--base);
   --md: calc(var(--sm)*1.618);
   --xmd: calc(var(--md)*1.618);

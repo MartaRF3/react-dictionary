@@ -70,12 +70,55 @@
       }
     }
     &__helptext {
-      padding-top: var(--sm);
+      padding-top: var(--xsm);
       color: var(--grey-dark);
       font-size: 14px;
     }
   }
 }
+
+.word {
+  width: 100%;
+  background-color: var(--whitish);
+
+  &__container {
+    padding: var(--md);
+    border: var(--border-3);
+    border-radius: 4px;
+  }
+  &__title {
+    font-size: 45px;
+    padding-bottom: var(--sm);
+  }
+  &__fonetics {
+    display: flex;
+
+    em {
+      color: var(--grey-dark);
+      font-style: italic;
+    }
+    span {
+      margin-left: var(--md);
+      font-size: 25px;
+      cursor: pointer;
+    }
+    &__audio {
+      display: none;
+    }
+  }
+  .meaning {
+    margin-top: var(--sm);
+    padding-left: var(--xmd);
+
+    &__title {
+      font-weight: 700;
+    }
+    &__text {
+      color: var(--grey-dark);
+    }
+  }
+}
+
 .empty {
   display: flex;
   justify-content: flex-start;
