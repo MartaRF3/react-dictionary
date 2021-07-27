@@ -1,3 +1,18 @@
+// Dynamic variables
+.searcher {
+  .form__submit {
+    --width: 39px;
+  }
+}
+
+@media only screen and (min-width: 860px) {
+  .searcher {
+    .form__submit {
+      --width: 59px;
+    }
+  }
+}
+
 .main {
   grid-area: main;
   align-self: start;
@@ -13,6 +28,7 @@
   &__content {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -22,15 +38,16 @@
       display: flex;
       justify-content: space-between;
       border: var(--border-2);
-      border-top-left-radius: 1px;
-      border-bottom-left-radius: 1px;
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
     }
     &__input {
       width: 95%;
       padding: var(--sm);
       text-align: left;
+      color: var(--accent);
 
       &::placeholder {
         font-family: inherit;
@@ -40,8 +57,8 @@
       }
     }
     &__submit {
-      width: 39px;
-      height: 39px;
+      width: var(--width);
+      height: var(--width);
       background-color: var(--white);
       border: var(--border-3);
       border-radius: 50%;
@@ -61,15 +78,23 @@
 }
 .empty {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   gap: 5px;
+  padding: var(--sm) var(--xmd);
+  margin: var(--md);
+  border: 2px dashed var(--grey);
+  border-radius: 3px;
 
-  &__text {
-    width: 80%;
-    text-align: right;
-  }
+  // &__text {  }
   &__arrow {
     font-size: 35px;
     color: var(--accent);
+    transition: transform 250ms ease-in-out;
+
+    &:hover {
+      transform: rotate(-15deg) translate(25px, -10px);
+      ;
+    }
   }
 }
