@@ -78,7 +78,7 @@
 }
 
 .word {
-  width: 100%;
+  width: 90%;
   background-color: var(--whitish);
 
   &__container {
@@ -101,6 +101,13 @@
       margin-left: var(--md);
       font-size: 25px;
       cursor: pointer;
+      text-shadow: var(--shadow-accent);
+      transition: all 200ms ease;
+
+      &:active {
+        transform: translate(2px, 4px);
+        text-shadow: 0 0 0 var(--grey);
+      }
     }
     &__audio {
       display: none;

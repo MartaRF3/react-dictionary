@@ -4,45 +4,41 @@ import axios from 'axios';
 import Word from './Word';
 
 let Main = () => {
-  let [inputText, setInputText] = useState('');
   let [word, setWord] = useState('');
   let [wordData, setWordData] = useState({ready: false});
 
   let inputHandler = (input) => {
-    setInputText(input.target.value);
+    setWord(input.target.value);
   }
 
   let submitHandler = (event) => {
     event.preventDefault();
-    setWord(inputText);
-    setInputText('');
     searchWord();
   }
   
+  let searchWord = () => {
+    // https://api.dictionaryapi.dev/api/<--version-->/entries/<--language_code-->/<--word-->
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`;
+
+    axios.get(url)
+      .then(responseHandler)
+      .catch(error => console.log(error))
+
+      let input = document.getElementById('searcher');
+      input.value = '';
+  }
+
   let responseHandler = (response) => {
+    console.log('Original data');
     console.log(response.data);
     setWordData({
       ready: true,
       word: response.data[0].word,
       phonetic: response.data[0].phonetics[0].text,
       audio: response.data[0].phonetics[0].audio,
-      meaning: {
-        type: response.data[0].meanings[0].partOfSpeech,
-        text: response.data[0].meanings[0].definitions[0].definition,
-      }
+      meanings: response.data[0].meanings,
     });
   }
-  
-  let searchWord = () => {
-    // https://api.dictionaryapi.dev/api/<--version-->/entries/<--language_code-->/<--word-->
-    let url = `https://api.dictionaryapi.dev/api/v2/entries/en_US/hello`;
-
-    axios.get(url)
-      .then(responseHandler)
-      .catch(error => console.log(error))
-
-  }
-
 
   return (
     <main className="main">
@@ -73,14 +69,6 @@ let Main = () => {
         </div>
         <div className="main__content">
           <Word wordData={wordData} />
-          <div className="empty">
-            <div className="empty__text">
-              <p>Go ahead, search for a word in the searcher above</p>
-            </div>
-            <div className="empty__arrow">
-              <p>↗</p>
-            </div>
-          </div>
         </div>
       </div>
     </main>

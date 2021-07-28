@@ -21,7 +21,7 @@
   &__icon {
     p {
       font-size: 30px;
-      text-shadow: 2px 4px 0 var(--accent);
+      text-shadow: var(--shadow-accent);
       transition: all 100ms ease-in;
 
       &:hover {
