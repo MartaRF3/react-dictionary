@@ -14,7 +14,9 @@ let Word = ({ wordData }) => {
   let printMeaning = (element) => {
     console.log('Meaning: ');
     console.log(element);
-    // <Meaning data={} />
+    return (
+      <Meaning type={element.partOfSpeech} definitions={element.definitions} />
+    )
   }
 
   if (wordData.ready) {
