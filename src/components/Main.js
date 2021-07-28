@@ -1,17 +1,43 @@
 import React, {useState} from 'react';
+import axios from 'axios';
+
+import Word from './Word';
 
 let Main = () => {
-  let [inputText, setInputText] = useState('');
   let [word, setWord] = useState('');
+  let [wordData, setWordData] = useState({ready: false});
 
-  let updateText = (input) => {
-    setInputText(input.target.value);
+  let inputHandler = (input) => {
+    setWord(input.target.value);
   }
 
-  let logSearch = (event) => {
+  let submitHandler = (event) => {
     event.preventDefault();
-    setWord(inputText);
-    setInputText('');
+    searchWord();
+  }
+  
+  let searchWord = () => {
+    // https://api.dictionaryapi.dev/api/<--version-->/entries/<--language_code-->/<--word-->
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`;
+
+    axios.get(url)
+      .then(responseHandler)
+      .catch(error => console.log(error))
+
+      let input = document.getElementById('searcher');
+      input.value = '';
+  }
+
+  let responseHandler = (response) => {
+    console.log('Original data');
+    console.log(response.data);
+    setWordData({
+      ready: true,
+      word: response.data[0].word,
+      phonetic: response.data[0].phonetics[0].text,
+      audio: response.data[0].phonetics[0].audio,
+      meanings: response.data[0].meanings,
+    });
   }
 
   return (
@@ -19,10 +45,10 @@ let Main = () => {
       <div className="main__container">
         <div className="searcher">
           <div className="form">
-            <form action="" onSubmit={logSearch}>
+            <form action="" onSubmit={submitHandler}>
               <div className="form__box">
                 <input
-                    onChange={updateText}
+                    onChange={inputHandler}
                     className="form__input"
                     type="search" 
                     name="searcher" 
@@ -38,19 +64,11 @@ let Main = () => {
               <div className="form__helptext">
                 <p>Introduce the word you want to search for</p>
               </div>
-              <span>{`Searching for ${word} definition...`}</span>
             </form>
           </div>
         </div>
         <div className="main__content">
-          <div className="empty">
-            <div className="empty__text">
-              <p>Go ahead, search for a word in the searcher above</p>
-            </div>
-            <div className="empty__arrow">
-              <p>↗</p>
-            </div>
-          </div>
+          <Word wordData={wordData} />
         </div>
       </div>
     </main>

@@ -21,6 +21,13 @@
   &__icon {
     p {
       font-size: 30px;
+      text-shadow: var(--shadow-accent);
+      transition: all 100ms ease-in;
+
+      &:hover {
+        transform: translate(2px, 4px);
+        text-shadow: 0 0 0 var(--grey);
+      }
     }
   }
 }
