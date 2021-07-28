@@ -1,17 +1,21 @@
 import React from 'react';
 
 let Meaning = ({type, definitions}) => {
+  let key = Math.random() * 100;
 
-  let printDefinition = () => {
+  let printDefinition = (element) => {
+    let key = Math.random() * 100;
     return (
-      <p className="meaning__text">Hi there im a meaning</p>
+      <li key={key}>{element.definition}</li>
     )
   }
-
+    
   return (
-    <div className="meaning">
+    <div className="meaning" key={key}>
       <h3 className="meaning__title">{type}</h3>
-      {definitions.forEach(printDefinition)}
+      <ol className="meaning__text">
+        {definitions.map(printDefinition)}
+      </ol>
     </div>
   )
 }

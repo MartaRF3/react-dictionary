@@ -12,8 +12,6 @@ let Word = ({ wordData }) => {
   let meanings = wordData.meanings;
 
   let printMeaning = (element) => {
-    console.log('Meaning: ');
-    console.log(element);
     return (
       <Meaning type={element.partOfSpeech} definitions={element.definitions} />
     )
@@ -30,12 +28,8 @@ let Word = ({ wordData }) => {
             </audio>
             <span onClick={playSound}>🔈</span>
           </div>
-          <div className="meaning">
-            <h3 className="meaning__title">{wordData.meanings[0].partOfSpeech}</h3>
-            <p className="meaning__text">{wordData.meanings[0].definitions[0].definition}</p>
-          </div>
-          { 
-            meanings.forEach(printMeaning)
+          {
+            meanings.map(printMeaning)
           }
         </div>
       </div>

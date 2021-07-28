@@ -82,7 +82,7 @@
   background-color: var(--whitish);
 
   &__container {
-    padding: var(--md);
+    padding: var(--xmd);
     border: var(--border-3);
     border-radius: 4px;
   }
@@ -91,6 +91,7 @@
     padding-bottom: var(--sm);
   }
   &__fonetics {
+    padding-left: var(--xmd);
     display: flex;
 
     em {
@@ -118,10 +119,19 @@
     padding-left: var(--xmd);
 
     &__title {
+      font-size: 20px;
       font-weight: 700;
     }
     &__text {
       color: var(--grey-dark);
+      li {
+        margin-top: var(--xsm);
+        margin-left: var(--lg);
+        padding-left: var(--xsm);
+      }
+    }
+    & + .meaning {
+      margin-top: var(--lg);
     }
   }
 }
