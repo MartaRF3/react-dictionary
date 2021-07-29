@@ -17,11 +17,26 @@ let Word = ({ wordData }) => {
     )
   }
 
+  let capitaliseThis = (word) => {
+    // Make it lowercase - in case it's needed
+    word = word.toLowerCase();
+    // Extract the first letter
+    let firstLetter = word[0];
+    // Capitalise the first letter
+    firstLetter = firstLetter.toUpperCase();
+    // Extract the rest of the word
+    let restOfWOrd = word.slice(1);
+    // Put it back together
+    return word = firstLetter.concat(restOfWOrd);
+  }
+
+  let title = capitaliseThis(wordData.word);
+
   if (wordData.ready) {
     return (
       <div className="word">
         <div className="word__container">
-          <h2 className="word__title">{wordData.word}</h2>
+          <h2 className="word__title">{title}</h2>
           <div className="word__fonetics">
             <p><em>{wordData.phonetic}</em></p>
             <audio className="word__audio" src={wordData.audio}>

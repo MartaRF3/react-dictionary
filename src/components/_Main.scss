@@ -57,16 +57,18 @@
       }
     }
     &__submit {
+      position: relative;
+      top: -4px;
       width: var(--width);
       height: var(--width);
-      background-color: var(--white);
-      border: var(--border-3);
+      background-color: var(--grey);
       border-radius: 50%;
       transition: all 200ms ease;
+      box-shadow: var(--shadow-accent);
 
       &:hover {
-        background-color: var(--accent);
-        opacity: 0.9;
+        transform: translate(2px, 4px);
+        box-shadow: 0 0 0 var(--grey);
       }
     }
     &__helptext {
@@ -79,15 +81,20 @@
 
 .word {
   width: 90%;
+  margin-top: 40px;
   background-color: var(--whitish);
+  border-radius: 15px;
 
   &__container {
     padding: var(--xmd);
-    border: var(--border-3);
-    border-radius: 4px;
+    // border: var(--border-2);
+    border-radius: 15px;
+    box-shadow: var(--shadow-grey);
   }
   &__title {
+    font-family: 'WindSong', cursive;
     font-size: 45px;
+    font-weight: 500;
     padding-bottom: var(--sm);
   }
   &__fonetics {
