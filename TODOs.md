@@ -1,6 +1,5 @@
 ##TODOS
 - loop so we can have several phonetics if there's several
-- searched word (title) needs to be capitalised
 
 
 ##EXTRAS
@@ -9,3 +8,7 @@
 
 ##BUGS
 - What happens when the word introduced is wrong?
+
+##DONE
+- searched word (title) needs to be capitalised
+- Added synonyms to the diferent definitions
