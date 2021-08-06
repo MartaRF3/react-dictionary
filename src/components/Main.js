@@ -19,6 +19,7 @@ let Main = () => {
   let searchWord = () => {
     // https://api.dictionaryapi.dev/api/<--version-->/entries/<--language_code-->/<--word-->
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`;
+    console.log(url);
 
     axios.get(url)
       .then(responseHandler)
@@ -29,7 +30,6 @@ let Main = () => {
   }
 
   let responseHandler = (response) => {
-    console.log('Original data');
     console.log(response.data);
     setWordData({
       ready: true,

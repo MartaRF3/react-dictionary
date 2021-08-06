@@ -4,11 +4,21 @@
     --width: 39px;
   }
 }
+.word {
+  &__title {
+    --font-size: 45px;
+  }
+}
 
 @media only screen and (min-width: 860px) {
   .searcher {
     .form__submit {
       --width: 59px;
+    }
+  }
+  .word {
+    &__title {
+      --font-size: 60px;
     }
   }
 }
@@ -57,16 +67,18 @@
       }
     }
     &__submit {
+      position: relative;
+      top: -4px;
       width: var(--width);
       height: var(--width);
-      background-color: var(--white);
-      border: var(--border-3);
+      background-color: var(--grey);
       border-radius: 50%;
       transition: all 200ms ease;
+      box-shadow: var(--shadow-accent);
 
       &:hover {
-        background-color: var(--accent);
-        opacity: 0.9;
+        transform: translate(2px, 4px);
+        box-shadow: 0 0 0 var(--grey);
       }
     }
     &__helptext {
@@ -79,19 +91,25 @@
 
 .word {
   width: 90%;
+  margin-top: 40px;
   background-color: var(--whitish);
+  border-radius: 15px;
 
   &__container {
     padding: var(--xmd);
-    border: var(--border-3);
-    border-radius: 4px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-grey);
   }
   &__title {
-    font-size: 45px;
-    padding-bottom: var(--sm);
+    font-family: 'WindSong', cursive;
+    font-size: var(--font-size);
+    font-weight: 500;
+    padding: var(--md) var(--md) var(--lg) var(--md);
+    text-shadow: 1px 2px 3px var(--grey-dark);
   }
   &__fonetics {
     padding-left: var(--xmd);
+    padding-bottom: var(--md);
     display: flex;
 
     em {
@@ -132,6 +150,27 @@
     }
     & + .meaning {
       margin-top: var(--lg);
+    }
+  }
+  .synonyms {
+    padding-left: var(--sm);
+    padding-bottom: var(--sm);
+
+    p {
+      padding-top: var(--sm);
+      font-style: italic;
+    }
+    &__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: var(--md);
+
+      padding: var(--sm);
+      margin-top: var(--sm);
+      border: 2px solid var(--grey);
+      border-radius: var(--br-1);
+    }
+    span {
     }
   }
 }

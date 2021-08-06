@@ -1,12 +1,18 @@
 import React from 'react';
 
+import Synonyms from './Synonyms';
+
 let Meaning = ({type, definitions}) => {
   let key = Math.random() * 100;
 
   let printDefinition = (element) => {
     let key = Math.random() * 100;
+
     return (
-      <li key={key}>{element.definition}</li>
+      <li key={key}>
+        <p>{element.definition}</p>
+        <Synonyms synonyms={element.synonyms} />
+      </li>
     )
   }
     
