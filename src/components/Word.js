@@ -30,9 +30,10 @@ let Word = ({ wordData }) => {
     return word = firstLetter.concat(restOfWOrd);
   }
 
-  let title = capitaliseThis(wordData.word);
-
+  
   if (wordData.ready) {
+    let title = capitaliseThis(wordData.word);
+    
     return (
       <div className="word">
         <div className="word__container">

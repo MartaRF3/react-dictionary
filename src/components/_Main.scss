@@ -4,11 +4,21 @@
     --width: 39px;
   }
 }
+.word {
+  &__title {
+    --font-size: 45px;
+  }
+}
 
 @media only screen and (min-width: 860px) {
   .searcher {
     .form__submit {
       --width: 59px;
+    }
+  }
+  .word {
+    &__title {
+      --font-size: 60px;
     }
   }
 }
@@ -87,18 +97,19 @@
 
   &__container {
     padding: var(--xmd);
-    // border: var(--border-2);
     border-radius: 15px;
     box-shadow: var(--shadow-grey);
   }
   &__title {
     font-family: 'WindSong', cursive;
-    font-size: 45px;
+    font-size: var(--font-size);
     font-weight: 500;
-    padding-bottom: var(--sm);
+    padding: var(--md) var(--md) var(--lg) var(--md);
+    text-shadow: 1px 2px 3px var(--grey-dark);
   }
   &__fonetics {
     padding-left: var(--xmd);
+    padding-bottom: var(--md);
     display: flex;
 
     em {
@@ -139,6 +150,27 @@
     }
     & + .meaning {
       margin-top: var(--lg);
+    }
+  }
+  .synonyms {
+    padding-left: var(--sm);
+    padding-bottom: var(--sm);
+
+    p {
+      padding-top: var(--sm);
+      font-style: italic;
+    }
+    &__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: var(--md);
+
+      padding: var(--sm);
+      margin-top: var(--sm);
+      border: 2px solid var(--grey);
+      border-radius: var(--br-1);
+    }
+    span {
     }
   }
 }
