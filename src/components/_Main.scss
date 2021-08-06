@@ -107,11 +107,16 @@
     padding: var(--md) var(--md) var(--lg) var(--md);
     text-shadow: 1px 2px 3px var(--grey-dark);
   }
-  &__fonetics {
+  &__phonetics {
     padding-left: var(--xmd);
     padding-bottom: var(--md);
     display: flex;
+    gap: var(--xlg);
 
+    .container {
+      display: flex;
+      gap: var(--xsm);
+    }
     em {
       color: var(--grey-dark);
       font-style: italic;
@@ -169,8 +174,6 @@
       margin-top: var(--sm);
       border: 2px solid var(--grey);
       border-radius: var(--br-1);
-    }
-    span {
     }
   }
 }
