@@ -34,8 +34,7 @@ let Main = () => {
     setWordData({
       ready: true,
       word: response.data[0].word,
-      phonetic: response.data[0].phonetics[0].text,
-      audio: response.data[0].phonetics[0].audio,
+      phonetics: response.data[0].phonetics,
       meanings: response.data[0].meanings,
     });
   }

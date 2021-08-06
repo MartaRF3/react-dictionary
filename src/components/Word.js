@@ -1,13 +1,9 @@
 import React from 'react';
 
 import Meaning from './Meaning';
+import Phonetics from './Phonetics';
 
 let Word = ({ wordData }) => {
-  
-  let playSound = () => {
-    let myAudio = document.querySelector(".word__audio");
-    myAudio.play();
-  }
 
   let meanings = wordData.meanings;
 
@@ -33,17 +29,13 @@ let Word = ({ wordData }) => {
   
   if (wordData.ready) {
     let title = capitaliseThis(wordData.word);
-    
+    console.log(wordData);
+
     return (
       <div className="word">
         <div className="word__container">
           <h2 className="word__title">{title}</h2>
-          <div className="word__fonetics">
-            <p><em>{wordData.phonetic}</em></p>
-            <audio className="word__audio" src={wordData.audio}>
-            </audio>
-            <span onClick={playSound}>🔈</span>
-          </div>
+          <Phonetics phonetics={wordData.phonetics} />
           {
             meanings.map(printMeaning)
           }

@@ -21,9 +21,7 @@ let Synonyms = ({synonyms}) => {
       </div>
     )
   } else {
-    return (
-      <div></div>
-    )
+    return null
   }
 }
 
