@@ -137,44 +137,46 @@
       display: none;
     }
   }
-  .meaning {
-    margin-top: var(--sm);
-    padding-left: var(--xmd);
+}
 
-    &__title {
-      font-size: 20px;
-      font-weight: 700;
-    }
-    &__text {
-      color: var(--grey-dark);
-      li {
-        margin-top: var(--xsm);
-        margin-left: var(--lg);
-        padding-left: var(--xsm);
-      }
-    }
-    & + .meaning {
-      margin-top: var(--lg);
+.meaning {
+  margin-top: var(--sm);
+  padding-left: var(--xmd);
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  &__text {
+    color: var(--grey-dark);
+    li {
+      margin-top: var(--xsm);
+      margin-left: var(--lg);
+      padding-left: var(--xsm);
     }
   }
-  .synonyms {
-    padding-left: var(--sm);
-    padding-bottom: var(--sm);
+  & + .meaning {
+    margin-top: var(--lg);
+  }
+}
 
-    p {
-      padding-top: var(--sm);
-      font-style: italic;
-    }
-    &__container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: var(--md);
+.synonyms {
+  padding-left: var(--sm);
+  padding-bottom: var(--sm);
 
-      padding: var(--sm);
-      margin-top: var(--sm);
-      border: 2px solid var(--grey);
-      border-radius: var(--br-1);
-    }
+  p {
+    padding-top: var(--sm);
+    font-style: italic;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: var(--md);
+
+    padding: var(--sm);
+    margin-top: var(--sm);
+    border: 2px solid var(--grey);
+    border-radius: var(--br-1);
   }
 }
 
@@ -198,5 +200,42 @@
       transform: rotate(-15deg) translate(25px, -10px);
       ;
     }
+  }
+}
+
+.images {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--xsm);
+
+  margin-top: var(--lg);
+  padding: var(--md);
+  border-radius: var(--br-2);
+  background-color: var(--grey);
+
+  .image__container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--br-1);
+  }
+  .image__author {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    padding: 2px 6px;
+    border-radius: var(--br-1);
+    background-color: var(--whitish);
+    opacity: 0.6;
+    color: var(--dark-grey);
+    font-style: italic;
+    font-size: 11px;
   }
 }
