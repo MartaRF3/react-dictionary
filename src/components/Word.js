@@ -37,7 +37,6 @@ let Word = ({ wordData, photoData }) => {
   
   if (wordData.ready) {
     let title = capitaliseThis(wordData.word);
-    console.log(photoData);
 
     return (
       <div className="word">

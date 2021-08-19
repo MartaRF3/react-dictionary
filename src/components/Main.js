@@ -6,7 +6,7 @@ import Word from './Word';
 let Main = () => {
   let [word, setWord] = useState('');
   let [wordData, setWordData] = useState({ready: false});
-  let [photoData, setPhotoData] = useState();
+  let [photoData, setPhotoData] = useState([]);
 
   let inputHandler = (input) => {
     setWord(input.target.value);
@@ -48,14 +48,8 @@ let Main = () => {
   }
 
   let pexelsResponseHandler = (response) => {
-    setTimeout( function() {
-      setPhotoData(response.data.photos)
-    },4000)
-    console.log(response);
-    console.log(photoData);
+    setPhotoData(response.data.photos)
   }
-
-
 
   return (
     <main className="main">
@@ -86,7 +80,6 @@ let Main = () => {
         </div>
         <div className="main__content">
           <Word wordData={wordData} photoData={photoData} />
-          {/* <Word wordData={wordData} /> */}
         </div>
       </div>
     </main>
