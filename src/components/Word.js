@@ -16,7 +16,7 @@ let Word = ({ wordData, photoData }) => {
 
   let printImage = (element) => {
     return (
-      <Image id={element.id} author={element.photographer} url={element.src.medium} />
+      <Image id={element.id} author={element.photographer} url={element.src.landscape} />
     )
   }
 
@@ -46,6 +46,14 @@ let Word = ({ wordData, photoData }) => {
           {meanings.map(printMeaning)}
           <div className="images">
             {photoData.map(printImage)}
+            <div className="images__text">
+              <a href="https://www.pexels.com/api/">
+                <p>Photos provided by Pexels API</p>
+              </a>
+              <a href="https://dictionaryapi.dev/">
+                <p>Word info provided by Free Dictionary API</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>
