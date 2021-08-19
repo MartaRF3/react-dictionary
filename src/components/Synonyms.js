@@ -2,27 +2,23 @@ import React from 'react';
 
 
 let Synonyms = ({synonyms}) => {
-  if (synonyms) {
 
-    let printSynonyms = (element) => {
-      return (
-        <span>{element}</span>
-      )
-    }
-
+  let printSynonyms = (element) => {
     return (
-      <div className="synonyms">
-        <p>Synonyms: </p>
-        <div className="synonyms__container">
-          {
-            synonyms.map(printSynonyms)
-          }
-        </div>
-      </div>
+      <span>{element}</span>
     )
-  } else {
-    return null
   }
+
+  return (
+    <div className="synonyms">
+      <p>Synonyms: </p>
+      <div className="synonyms__container">
+        {
+          synonyms.map(printSynonyms)
+        }
+      </div>
+    </div>
+  )
 }
 
 export default Synonyms;

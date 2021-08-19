@@ -1,5 +1,17 @@
 // Dynamic variables
+.footer {
+  &__info {
+    --top: -28px;
+  }
+}
 
+@media (min-width: 860px) {
+  .footer {
+    &__info {
+      --top: -43px;
+    }
+  }
+}
 
 // Layout
 .footer {
@@ -18,8 +30,31 @@
       justify-content: space-between;
     }
   }
+  &__info {
+    position: absolute;
+    top: var(--top);
+    width: 200px;
+    font-style: italic;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+  }
+  ul li:nth-child(1) .footer__info {
+    left: 7px;
+  }
+  ul li:nth-child(2) .footer__info {
+    left: -63px;
+  }
+  ul li:nth-child(3) .footer__info {
+    left: -163px;
+    text-align: right;
+  }
   &__icon {
-    p {
+    position: relative;
+    &:hover .footer__info {
+      opacity: 1;
+    }
+    a p {
       font-size: 30px;
       text-shadow: var(--shadow-accent);
       transition: all 100ms ease-in;

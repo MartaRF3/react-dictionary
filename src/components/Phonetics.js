@@ -8,14 +8,22 @@ let Phonetics = ({phonetics}) => {
   }
 
   let printPhonetics = (element, index) => {
-    return (
-      <div className="container" key={index}>
+    if (element.audio) {
+      return (
+        <div className="container" key={index}>
         <p><em>{element.text}</em></p>
         <audio className="word__audio" src={element.audio}>
         </audio>
         <span onClick={playSound}>🔈</span>
       </div>
-    )
+      )
+    } else {
+      return (
+        <div className="container" key={index}>
+          <p><em>{element.text}</em></p>
+        </div>
+      )
+    }
   }
 
   return (

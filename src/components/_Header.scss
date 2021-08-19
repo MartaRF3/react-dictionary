@@ -1,7 +1,7 @@
 // Dynamic variables
 .header {
   h1 {
-    --font-size: 30px;
+    --font-size: 27px;
   }
   &__logo {
     --width: 50px;
@@ -14,7 +14,7 @@
       --font-size: 50px;
     }
     &__logo {
-      --width: 150px;
+      --width: 80px;
     }
   }
 }
@@ -31,15 +31,18 @@
   
   &__container {
     grid-column: 2;
-    padding: var(--md);
+    padding: var(--sm);
   }
   &__title {
     display: flex;
     align-items: center;
     gap: 15px;
+    // font-family: 'Style Script', cursive;
+    font-family: 'WindSong', cursive;
 
     h1 {
       font-size: var(--font-size);
+      font-weight: bold;
     }
   }
   &__logo {

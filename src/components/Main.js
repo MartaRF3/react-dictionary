@@ -6,6 +6,7 @@ import Word from './Word';
 let Main = () => {
   let [word, setWord] = useState('');
   let [wordData, setWordData] = useState({ready: false});
+  let [photoData, setPhotoData] = useState([]);
 
   let inputHandler = (input) => {
     setWord(input.target.value);
@@ -17,26 +18,37 @@ let Main = () => {
   }
   
   let searchWord = () => {
-    // https://api.dictionaryapi.dev/api/<--version-->/entries/<--language_code-->/<--word-->
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`;
-    console.log(url);
-
+    let pexelsAPIKey = '563492ad6f917000010000012384f85b667d49f2b93107eeda57a305';
+    let pexelsUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=6`;
+    
     axios.get(url)
       .then(responseHandler)
       .catch(error => console.log(error))
 
-      let input = document.getElementById('searcher');
-      input.value = '';
+    let input = document.getElementById('searcher');
+    input.value = '';
+
+    axios.get(pexelsUrl, {
+        headers: {
+          "Authorization" : `Bearer ${pexelsAPIKey}`
+        }
+      })
+      .then(pexelsResponseHandler)
+      .catch(error => console.log(error))
   }
 
   let responseHandler = (response) => {
-    console.log(response.data);
     setWordData({
       ready: true,
       word: response.data[0].word,
       phonetics: response.data[0].phonetics,
       meanings: response.data[0].meanings,
     });
+  }
+
+  let pexelsResponseHandler = (response) => {
+    setPhotoData(response.data.photos)
   }
 
   return (
@@ -67,7 +79,7 @@ let Main = () => {
           </div>
         </div>
         <div className="main__content">
-          <Word wordData={wordData} />
+          <Word wordData={wordData} photoData={photoData} />
         </div>
       </div>
     </main>
