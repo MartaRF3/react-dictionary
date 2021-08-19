@@ -10,6 +10,10 @@
   }
 }
 
+.images {
+  --img-size: 200px;
+}
+
 @media only screen and (min-width: 860px) {
   .searcher {
     .form__submit {
@@ -20,6 +24,9 @@
     &__title {
       --font-size: 60px;
     }
+  }
+  .images {
+    --img-size: 350px;
   }
 }
 
@@ -205,7 +212,7 @@
 
 .images {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 450px));
+  grid-template-columns: repeat(auto-fill, minmax(var(--img-size), 1fr));
   grid-template-rows: auto;
   grid-auto-flow: dense;
   gap: var(--xsm);
@@ -214,7 +221,16 @@
   padding: var(--md);
   border-radius: var(--br-2);
   background-color: var(--grey);
-
+  &__text {
+    grid-column: 2;
+    justify-self: end;
+    align-self: end;
+    a {
+      font-size: 10px;
+      text-align: right;
+      font-style: italic;
+    }
+  }
   .image__container {
     position: relative;
   }

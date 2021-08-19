@@ -20,7 +20,7 @@ let Main = () => {
   let searchWord = () => {
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`;
     let pexelsAPIKey = '563492ad6f917000010000012384f85b667d49f2b93107eeda57a305';
-    let pexelsUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=6`;
+    let pexelsUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=8`;
     
     axios.get(url)
       .then(responseHandler)
